@@ -28,8 +28,11 @@ object Server extends HttpApp with JsonSupport {
   override protected def routes: Route = {
     path(""){
       get{
-        complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<html><body><script>window.location.href = '/static/index.html';</script></body></html>"))		
+        complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<html><body><script>window.location.href = '/home';</script></body></html>"))		
       }
+    }~
+	path("home"){
+      getFromResource("static/index.html")
     }~
     path("helloDTO"){
       get{
