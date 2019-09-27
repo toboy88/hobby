@@ -2,7 +2,8 @@
 import akka.Done
 import akka.actor.{ActorSystem, Props}
 import akka.pattern.ask
-
+import akka.http.scaladsl.Http
+import akka.http.scaladsl.model._
 import scala.concurrent.duration._
 import akka.http.scaladsl.server.{HttpApp, Route}
 import akka.util.Timeout
@@ -14,7 +15,7 @@ import scala.util.Try
 
 /**
   *
-  * @author chenhuanming
+  * @author ./
   *         Created at 2018/6/13
   */
 object Server extends HttpApp with JsonSupport {
@@ -27,7 +28,7 @@ object Server extends HttpApp with JsonSupport {
   override protected def routes: Route = {
     path(""){
       get{
-        complete("hello")
+        complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<html><body><script>window.location.href = '/static/index.html';</script></body></html>"))		
       }
     }~
     path("helloDTO"){
@@ -56,6 +57,6 @@ object Server extends HttpApp with JsonSupport {
   }
 
   def main(args: Array[String]): Unit = {
-    Server.startServer("0.0.0.0",8080,actorSystem)
+    Server.startServer("0.0.0.0",8060,actorSystem)
   }
 }
