@@ -4,10 +4,10 @@ application:
 
 server:
   http:
-    port: 8080
+    port: 8061
   compression:
     enabled: true
-  port: 8443
+  port: 8062
   ssl:
     key-store: classpath:keystore.jks
     key-store-password: changeit
