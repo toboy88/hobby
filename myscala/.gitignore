@@ -1,0 +1,11 @@
+*.class
+*.jar
+target/
+.settings/
+.project
+.classpath
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp

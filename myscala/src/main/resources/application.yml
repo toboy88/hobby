@@ -1,0 +1,29 @@
+application:
+  name: "scala-module-dependency-myscala"
+  description: "An Restful Spring Boot App using Scala"
+
+server:
+  http:
+    port: 8080
+  compression:
+    enabled: true
+  port: 8443
+  ssl:
+    key-store: classpath:keystore.jks
+    key-store-password: changeit
+
+logging:
+  file: logs/scala-module-dependency-myscala.log
+
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    metrics:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
